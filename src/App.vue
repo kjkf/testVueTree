@@ -8,7 +8,7 @@
       </header>
       <div class='content-wrapper'>
         <section class='section dak'>
-          <v-tree ref='tree' :data='treeData1' :multiple='true' :tpl='tpl' :halfcheck='true' v-on:node-click="nodeClick" />
+          <v-tree ref='tree' :draggable='true' :data='treeData1'  :tpl='tpl' :halfcheck='true' v-on:node-click="nodeClick" />
         </section>
         <section class='section rkk'>
           <my-grid
@@ -24,103 +24,15 @@
 </template>
 
 <script>
+import myJsonFile from './assets/data.json'
 
 export default {
   name: 'App',
   data () {
     return {
       gridColumns: ['name', 'description'],
-      /* gridData: [
-        { name: 'Chuck Norris', description: Infinity },
-        { name: 'Bruce Lee', description: 9000 },
-        { name: 'Jackie Chan', description: 7000 },
-        { name: 'Jet Li', description: 8000 }
-      ], */
       searchword: '',
-      treeData1: [{
-        'title': 'САУО АУРА',
-        'expanded': true,
-        'children': [
-          {
-            'title': 'Конструктор процессов',
-            'expanded': true,
-            'children': [
-              {
-                'title': 'Процесс'
-              },
-              {
-                'title': 'Событие'
-              },
-              {
-                'title': 'Действие'
-              },
-              {
-                'title': 'Форма документа'
-              },
-              {
-                'title': 'Роль'
-              },
-              {
-                'title': 'Связь'
-              },
-              {
-                'title': 'Логическое правило'
-              }
-            ]
-          },
-          {
-            'title': 'Конструктор форм документов',
-            'children': [
-              {
-                'title': 'Форма документа'
-              },
-              {
-                'title': 'Реквизит'
-              },
-              {
-                'title': 'Классификатор'
-              },
-              {
-                'title': 'Таблица'
-              },
-              {
-                'title': 'Диаграмма'
-              }
-            ]
-          },
-          {
-            'title': 'Конструктор интерфейсов',
-            'children': [
-              {
-                'title': 'Кнопка'
-              },
-              {
-                'title': 'Переключатель'
-              },
-              {
-                'title': 'Ссылка'
-              },
-              {
-                'title': 'Коментарий'
-              },
-              {
-                'title': 'Другой объект'
-              }
-            ]
-          },
-          {
-            'title': 'Автоматический программный агент',
-            'children': [
-              {
-                'title': 'АПА клиент'
-              },
-              {
-                'title': 'АПА Сервер'
-              }
-            ]
-          }
-        ]
-      }],
+      treeData1: myJsonFile,
       currentNode: ''
     }
   },
